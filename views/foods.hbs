@@ -1,5 +1,46 @@
-{{#each foods}}
-<ul>
-<li>{{this.list.item.name}}</li>
-</ul>
+<h2>search for a food:</h2>
+
+<input type="text" name="query" id="search">
+<button id="button">search</button>
+<div id="results">
+
+</div>
+
+{{!-- <h3 style="margin-top:50px;">a list of 50 foods...</h3>
+
+{{#each this}}
+
+{{#each this.item}}
+<p>{{name}}</p>
 {{/each}}
+
+{{/each}} --}}
+
+
+
+<script>
+
+//food search
+const input = document.getElementById('search');
+const searchResults = document.getElementById('results');
+const button = document.getElementById('button');
+
+button.addEventListener('click', () =>{
+    fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${input.value}&sort=r&max=10&offset=0&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
+.then(result => result.json())
+.then(food => {
+    searchResults.innerHTML = '';
+    var ul = document.createElement('ul');
+    searchResults.appendChild(ul);
+    //if (movie.status_code === 34) return searchRes.innerHTML =('');
+    var foodArray = food.list.item;
+    foodArray.forEach(function(food){
+        var li = document.createElement('li');
+        var text = document.createTextNode(food.name);
+        li.appendChild(text);
+        ul.appendChild(li);
+    })
+    //return searchResults.innerHTML = food.list.item[0].name;
+})
+})
+</script>
