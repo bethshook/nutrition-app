@@ -8,14 +8,16 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/foods', (req,res,next)=>{
-  fetch('https://api.nal.usda.gov/ndb/list?format=json&lt=f&sort=n&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp')
+  fetch('https://api.edamam.com/api/food-database/parser?ingr=apple&app_id=ac3de265&app_key=60cd20dfc55a216360c3f54521f9bef4')
   .then(results => results.json())
   //foods =  results.json
   .then(foods=> {
     res.render('foods', foods);
+    console.log(foods.hints[0])
     //we're passing an object and then using array in view
   }) 
 })
+
 
 
 

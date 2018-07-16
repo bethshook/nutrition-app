@@ -6,15 +6,14 @@
 
 </div>
 
-{{!-- <h3 style="margin-top:50px;">a list of 50 foods...</h3>
+{{!-- <h3 style="margin-top:50px;">a list of foods...</h3>
 
-{{#each this}}
+{{#each hints}}
 
-{{#each this.item}}
-<p>{{name}}</p>
-{{/each}}
+<p>{{food.label}} ({{food.brand}})</p>
 
 {{/each}} --}}
+
 
 
 
@@ -26,21 +25,22 @@ const searchResults = document.getElementById('results');
 const button = document.getElementById('button');
 
 button.addEventListener('click', () =>{
-    fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${input.value}&sort=r&max=10&offset=0&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
+    fetch(`https://api.edamam.com/api/food-database/parser?ingr=${input.value}&app_id=ac3de265&app_key=60cd20dfc55a216360c3f54521f9bef4`)
 .then(result => result.json())
-.then(food => {
+.then(foods => {
     searchResults.innerHTML = '';
     var ul = document.createElement('ul');
     searchResults.appendChild(ul);
     //if (movie.status_code === 34) return searchRes.innerHTML =('');
-    var foodArray = food.list.item;
-    foodArray.forEach(function(food){
+    var hints = foods.hints;
+    hints.forEach(function(foodObj){
         var li = document.createElement('li');
-        var text = document.createTextNode(food.name);
+        var text = document.createTextNode(foodObj.food.label.toLowerCase() + ' - ');
+        var text2 = document.createTextNode(foodObj.food.brand);
         li.appendChild(text);
-        ul.appendChild(li);
+        li.appendChild(text2);
+        ul.appendChild(li);  
     })
-    //return searchResults.innerHTML = food.list.item[0].name;
 })
 })
 </script>
