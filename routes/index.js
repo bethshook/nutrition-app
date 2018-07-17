@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const fetch = require('node-fetch');
 const ensureLogin = require("connect-ensure-login");
+const Message = require('../models/Message')
 
 
 /* GET home page */
@@ -55,7 +56,37 @@ router.get('/snack', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
   }) 
 })
 
+//messages
 
+router.get('/messages', (req,res,next)=>{
+  Message.find({user:req.user})
+  .then(messages=>{
+      res.render('messages', {messages})
+  })
+  .catch(e=>next(e))
+})
 
+router.post('/message', (req,res,next)=>{
+  const subject = req.body.subject;
+  const date = req.body.date;
+  const body = req.body.body;
+  const user = req.user;
+
+  const newMessage = new Message({
+    subject,
+    body,
+    date,
+    user,
+  });
+
+  newMessage.save((err) => {
+    if (err) {
+      res.render("/messages", { message: "Something went wrong" });
+    } else {
+      res.redirect("/messages");
+    }
+  });
+
+})
 
 module.exports = router;

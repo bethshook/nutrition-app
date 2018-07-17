@@ -1,0 +1,53 @@
+<nav><h2>NutritionHack</h2></nav>
+<div id="container">
+<h1>Update Profile</h1>
+
+<form action="/edit" method="POST" id="form-container">
+  <label for="firstname">First name:</label>
+  <input id="firstname" type="text" name="firstname" value="{{firstname}}">
+  <br><br>
+  <label for="lastname">Last name:</label>
+  <input id="lastname" type="text" name="lastname" value="{{lastname}}">
+  <br><br>
+  <label for="username">Username:</label>
+  <input id="username" type="text" name="username" value="{{username}}">
+  <br><br>
+  <label for="email">Email:</label>
+  <input id="email" type="email" name="email" value="{{email}}">
+  <br><br>
+  <label for="gender">Gender:</label><br>
+  <input type="radio" name="gender" value="female" checked> Female<br>
+  <input type="radio" name="gender" value="male"> Male<br>
+  <input type="radio" name="gender" value="other"> Other
+  <br><br>
+  <label for="height">Height:</label>
+  <input id="height" type="text" name="height" value="{{height}}">
+  <br><br>
+  <label for="weight">Weight:</label>
+  <input id="weight" type="text" name="weight" value="{{weight}}">
+  <br><br>
+  <label for="age">Age:</label>
+  <input id="age" type="text" name="age" value="{{age}}">
+  <br><br>
+  <label for="activity">Physical Activity Level:</label>
+  <br>
+   <input type="radio" name="activity" value="high"> High<br>
+  <input type="radio" name="activity" value="average" checked> Average<br>
+  <input type="radio" name="activity" value="low"> Low
+  {{!-- <br><br>
+  <label for="password">Password:</label>
+  <input id="password" type="password" name="password">
+  <br><br>
+  <label for="password2">Password:</label>
+  <input id="password2" type="password" name="password2"> --}}
+
+  {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  <br><br>
+
+  <button class="small">Update</button>
+
+  </form>
+
+  <p><a href="/private">Back to dashboard</a></p>

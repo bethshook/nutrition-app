@@ -1,0 +1,31 @@
+<nav><a href="/"><h2>NutritionHack</h2></a></nav>
+<div id="container">
+  <h3>My Diet Log</h3>
+<div class="main">
+<section id="write-message">
+  <p>My nutritionist:</p>
+  <p>Write a log for your nutritionist.</p>
+  <form validated action="/message" method="post">
+  <p><b>Date:</b></p>
+  <input type="date" name="date">
+  <p><b>Subject:</b></p>
+  <input type="text" name="subject" id="subject">
+  <p><b>Message:</b></p>
+  <textarea id="message-text" name="body"></textarea>
+  <p><button class="small-button">Post</button></p>
+  </form>
+</section>
+<section id="print-message">
+      {{#each messages as |message|}}
+ <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{message.subject}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{message.date}}</h6>
+    <p class="card-text">{{message.body}}</p>
+  </div>
+</div>
+ {{/each}}
+
+</section>
+</div>
+</div>

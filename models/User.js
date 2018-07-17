@@ -2,13 +2,26 @@ const Schema = require('mongoose').Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = new Schema ({
-    username: String,
+    username: {
+        type: String},
     firstname: String,
     lastname: String,
     email: String,
     password: String,
     gender: String,
-    profile:{
+    height: String,
+    weight: String,
+    age: String,
+    activity: {
+        type: String,
+        enum: ['Low', 'Average', 'High']
+    },
+    role: {
+        type: String,
+        enum: ['Patient', 'Dietitian'],
+        default: 'Patient'
+    },
+    profile: {
         type:Schema.Types.ObjectId,
         ref: 'Profile'
     },
@@ -16,10 +29,10 @@ const userSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: 'Meal'
     }],
-    habits: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Habit'
-    }]
+    // habits: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Habit'
+    // }]
 },
     {
         timestamps:{

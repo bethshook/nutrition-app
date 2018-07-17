@@ -1,22 +1,36 @@
-<nav><h2>NutritionHack</h2></nav>
+<nav><a href="/"><h2>NutritionHack</h2></a></nav>
 <div id="container">
-<h3>Nutrition Dashboard</h3>
+  <h3>Nutrition Dashboard</h3>
+  <div class="main">
+  <div class="left-column">
 {{#if user}}
-<p>Welcome {{user.firstname}} {{user.lastname}}</p>
-<p>Username: {{user.username}}</p>
-<p>Email: {{user.email}}</p>
-<p>Gender: {{user.gender}}</p>
+<h2>Welcome, {{user.username}}!</h2>
+<p><b>Username:</b> {{user.username}}</p>
+<p><b>Full name:</b> {{user.firstname}} {{user.lastname}}</p>
+<p><b>Email:</b> {{user.email}}</p>
+<p><b>Gender:</b> {{user.gender}}</p>
+<p><b>Height:</b> {{user.height}}</p>
+<p><b>Weight:</b> {{user.weight}}</p>
+<p><b>Age:</b> {{user.age}}</p>
+<p><b>Physical Activity Level:</b> {{user.activity}}</p>
+<p><a href="edit">Edit profile information</a></p>
+</div>
 
-
-  <p><h4>My Meals</h4></p>
-  <p><a href="/meals">Add a meal</a></p>
+    <h4>My Meals</h4>
+  <p><a href="/meals"><button class="small-button">Add a meal</button></a></p>
 
 <section id="messages">
-  <h4>Message Center</h4>
+  <h4>Diet Log</h4>
+  <p><a href="messages">Review your most recent messages.</a></p>
 </section>
+
+<h4>Manage Patients</h4>
 
 {{/if}}
 
-<a href="auth/logout">Logout</a>
+
+
+</div>
+<a href="auth/logout"></a><button>Logout</button></a>
 
 </div>

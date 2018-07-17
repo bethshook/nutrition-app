@@ -23,6 +23,11 @@ router.post("/signup", (req, res, next) => {
     const lastname = req.body.lastname;
     const gender = req.body.gender;
     const email = req.body.email;
+    const role = req.body.role;
+    const height = '';
+    const weight = '';
+    const age = '';
+    const activity = '';
 
   
     if (username === "" || password === "") {
@@ -46,7 +51,12 @@ router.post("/signup", (req, res, next) => {
         lastname,
         email,
         password: hashPass,
-        gender
+        gender,
+        role,
+        height,
+        weight,
+        age,
+        activity
       });
   
       newUser.save((err) => {
@@ -90,10 +100,25 @@ router.get('/facebook/callback',
     res.redirect('/private');
   });
 
-
+//dashboard aka profile
 router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
     res.render("private", { user: req.user });
   });
+
+router.get('/edit', ensureLogin.ensureLoggedIn(), (req,res) => {
+    res.render('edit', req.user );
+})
+
+router.post('/edit', (req,res)=>{
+  const {firstname,lastname,username,email,gender,height,weight,age,activity} = req.body;
+  User.update({user: req.user}, { $set: {firstname,lastname,username,email,gender,height,weight,age,activity}} )
+  .then((user)=> {
+    res.redirect('/private')
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+})
 
 
 module.exports = router;
