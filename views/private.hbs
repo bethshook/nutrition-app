@@ -1,9 +1,22 @@
-Nutrition Dashboard
+<nav><h2>NutritionHack</h2></nav>
+<div id="container">
+<h3>Nutrition Dashboard</h3>
 {{#if user}}
-<p>Welcome {{user.username}}</p>
-  <div>
-    <a href="/">Index</a>
-  </div>
+<p>Welcome {{user.firstname}} {{user.lastname}}</p>
+<p>Username: {{user.username}}</p>
+<p>Email: {{user.email}}</p>
+<p>Gender: {{user.gender}}</p>
+
+
+  <p><h4>My Meals</h4></p>
+  <p><a href="/meals">Add a meal</a></p>
+
+<section id="messages">
+  <h4>Message Center</h4>
+</section>
+
 {{/if}}
 
 <a href="auth/logout">Logout</a>
+
+</div>

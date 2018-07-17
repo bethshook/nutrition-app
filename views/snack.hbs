@@ -1,0 +1,47 @@
+<nav><h2>NutritionHack</h2></nav>
+<div id="container">
+    <section id="food-search">
+<p>Search for a food item:</p>
+
+<input type="text" name="query" id="search">
+<button id="button" class="small">search</button>
+<div id="results">
+
+</div>
+
+<p><a href="private">Return to dashboard</a></p>
+
+</section>
+</div>
+<script>
+
+//food search
+const input = document.getElementById('search');
+const searchResults = document.getElementById('results');
+const button = document.getElementById('button');
+
+button.addEventListener('click', () =>{
+    fetch(`https://api.edamam.com/api/food-database/parser?ingr=${input.value}&app_id=ac3de265&app_key=60cd20dfc55a216360c3f54521f9bef4`)
+.then(result => result.json())
+.then(foods => {
+    searchResults.innerHTML = '';
+    var ul = document.createElement('ul');
+    searchResults.appendChild(ul);
+    //if (movie.status_code === 34) return searchRes.innerHTML =('');
+    var hints = foods.hints;
+    hints.forEach(function(foodObj){
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        var add = document.createTextNode('add');
+        var text = document.createTextNode(foodObj.food.label.toLowerCase() + ' - ');
+        var text2 = document.createTextNode(foodObj.food.brand + ' ');
+        a.appendChild(add);
+        a.href = "";
+        li.appendChild(text);
+        li.appendChild(text2);
+        li.appendChild(a);
+        ul.appendChild(li);
+    })
+})
+})
+</script>

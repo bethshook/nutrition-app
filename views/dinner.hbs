@@ -1,22 +1,18 @@
-<h2>search for a food:</h2>
+<nav><h2>NutritionHack</h2></nav>
+<div id="container">
+    <section id="food-search">
+<p>Search for a food item:</p>
 
 <input type="text" name="query" id="search">
-<button id="button">search</button>
+<button id="button" class="small">search</button>
 <div id="results">
 
 </div>
 
-{{!-- <h3 style="margin-top:50px;">a list of foods...</h3>
+<p><a href="private">Return to dashboard</a></p>
 
-{{#each hints}}
-
-<p>{{food.label}} ({{food.brand}})</p>
-
-{{/each}} --}}
-
-
-
-
+</section>
+</div>
 <script>
 
 //food search
@@ -35,11 +31,16 @@ button.addEventListener('click', () =>{
     var hints = foods.hints;
     hints.forEach(function(foodObj){
         var li = document.createElement('li');
+        var a = document.createElement('a');
+        var add = document.createTextNode('add');
         var text = document.createTextNode(foodObj.food.label.toLowerCase() + ' - ');
-        var text2 = document.createTextNode(foodObj.food.brand);
+        var text2 = document.createTextNode(foodObj.food.brand + ' ');
+        a.appendChild(add);
+        a.href = "";
         li.appendChild(text);
         li.appendChild(text2);
-        ul.appendChild(li);  
+        li.appendChild(a);
+        ul.appendChild(li);
     })
 })
 })

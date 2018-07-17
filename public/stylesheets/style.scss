@@ -1,10 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two');
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  font: 14px "Lato", Calibri, Arial, sans-serif;
+  background-color:#f8f8f8;
+}
+
+#container {
+  padding: 40px 0;
+  height: 600px;
+  position: relative;
+}
+
+#food-search {
+  width: 300px;
+  margin: 0 auto;
 }
 
 a {
   color: #00B7FF;
+}
+
+nav {
+  background-color: #45B8AC;
+  height: 60px;
+  color: #f8f8f8;
+  padding-top: 10px;
+}
+
+h1,h2{
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+
+}
+
+button, input.submit {
+  background-color: #E94B3C;
+  padding: 15px 25px;
+  color: white;
+  font-size: 1.1em;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+
+  .small {
+    padding: 5px 10px;
+  }
+}
+
+.yellow {
+  background-color: #ECDB54;
 }
 
 #results {
@@ -16,4 +65,43 @@ a {
     margin: 0;
   
   }
+}
+
+.center {
+  text-align: center;
+}
+
+#meals {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px auto;
+  font-weight: bold;
+  font-size: 1.2em;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    width: 160px;
+    margin: 0 10px 15px 10px;
+  }
+}
+
+#buttons {
+  margin-top: 50px;
+}
+
+#form-container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+footer {
+  background-color: #5B5EA6;
+  height: 60px;
+
 }

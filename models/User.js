@@ -3,13 +3,11 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = new Schema ({
     username: String,
-    name: String,
+    firstname: String,
+    lastname: String,
     email: String,
     password: String,
-    gender: {
-        type: String,
-        enum: ['Male', 'Female']
-    },
+    gender: String,
     profile:{
         type:Schema.Types.ObjectId,
         ref: 'Profile'

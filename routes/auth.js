@@ -5,7 +5,6 @@ const passport = require('passport')
 const passportFacebook = require('../helpers/facebook');
 const ensureLogin = require("connect-ensure-login");
 
-
 //User model
 const User = require('../models/User') 
 
@@ -20,6 +19,11 @@ router.get('/signup', (req, res, next)=>{
 router.post("/signup", (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
+    const firstname = req.body.firstname;
+    const lastname = req.body.lastname;
+    const gender = req.body.gender;
+    const email = req.body.email;
+
   
     if (username === "" || password === "") {
       res.render("auth/signup", { message: "Indicate username and password" });
@@ -38,8 +42,11 @@ router.post("/signup", (req, res, next) => {
   
       const newUser = new User({
         username,
+        firstname,
+        lastname,
+        email,
         password: hashPass,
-        //email
+        gender
       });
   
       newUser.save((err) => {
@@ -69,9 +76,9 @@ router.post('/login', passport.authenticate('local', {
     res.redirect('/private')
   })
 
-router.get('/logout', function(req, res){
+router.get('/logout', function(req, res, next){
     req.logout();
-    res.redirect('auth/login');
+    res.redirect('/');
   });
 
 
