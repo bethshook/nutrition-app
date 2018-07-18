@@ -1,8 +1,8 @@
 <nav><a href="/"><h2>NutritionHack</h2></a></nav>
 <div id="container">
   <h3>My Diet Log</h3>
-<div class="main">
-<section id="write-message">
+<div class="common-container">
+<div id="write-message">
   <p>My nutritionist:</p>
   <p>Write a log for your nutritionist.</p>
   <form validated action="/message" method="post">
@@ -14,8 +14,8 @@
   <textarea id="message-text" name="body"></textarea>
   <p><button class="small-button">Post</button></p>
   </form>
-</section>
-<section id="print-message">
+</div>
+<div id="print-message">
       {{#each messages as |message|}}
  <div class="card" style="width: 18rem;">
   <div class="card-body">
@@ -26,6 +26,6 @@
 </div>
  {{/each}}
 
-</section>
+</div>
 </div>
 </div>

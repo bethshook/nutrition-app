@@ -1,9 +1,11 @@
 <nav><a href="/"><h2>NutritionHack</h2></a></nav>
 <div id="container">
-  <h3>Nutrition Dashboard</h3>
-  <div class="main">
-  <div class="left-column">
-{{#if user}}
+  {{#if user}}
+  <h3>{{user.firstname}}'s Nutrition Dashboard</h3>
+<div class="common-container">
+
+<section id ="welcome-box">
+
 <h2>Welcome, {{user.username}}!</h2>
 <p><b>Username:</b> {{user.username}}</p>
 <p><b>Full name:</b> {{user.firstname}} {{user.lastname}}</p>
@@ -14,23 +16,29 @@
 <p><b>Age:</b> {{user.age}}</p>
 <p><b>Physical Activity Level:</b> {{user.activity}}</p>
 <p><a href="edit">Edit profile information</a></p>
-</div>
-
+</section>
+<div>
+<section id="meals-box">
     <h4>My Meals</h4>
+    <p>Track your daily caloric intake.</p>
+    <p><a href="/meal-record"><button class="small-button">Review meals</button></a></p>
   <p><a href="/meals"><button class="small-button">Add a meal</button></a></p>
+  </section>
 
 <section id="messages">
   <h4>Diet Log</h4>
-  <p><a href="messages">Review your most recent messages.</a></p>
+  <p>Review your most recent messages.</p>
+  <p><a href="/messages"><button class="small-button">View log</button></a></p>
 </section>
+</div>
 
+<section id="patients-box">
 <h4>Manage Patients</h4>
-
+</section>
 {{/if}}
 
-
-
 </div>
-<a href="auth/logout"></a><button>Logout</button></a>
+
+<a href="auth/logout"></a><button class="teal">Logout</button></a>
 
 </div>

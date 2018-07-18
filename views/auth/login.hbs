@@ -1,8 +1,8 @@
-<nav><h2>NutritionHack</h2></nav>
+<nav><a href="/"><h2>NutritionHack</h2></a></nav>
 <div id="container">
 <h3>Log in</h3>
 
-<form action="/login" method="POST" id="form-container">
+<form action="/login" method="POST" class="center-column">
   <div>
     <label for="username">Username:</label>
     <input type="text" name="username">
@@ -14,10 +14,9 @@
   {{#if message}}
     <div class="error-message">{{ message }}</div>
   {{/if}}
-  <div>
-    <input type="submit" value="Log In" class="submit">
-  </div>
+  <p>
+    <button class="small-button">Submit</button>
+  </p>
 </form>
 
 </div>
-<footer></footer>
