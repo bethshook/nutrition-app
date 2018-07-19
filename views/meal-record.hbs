@@ -3,15 +3,19 @@
 
 <h3>My Meal History</h3>
 
-
+<div id="meal-history">
    {{#each this}}
-
+   <div class="food">
+<p>{{created_at}}</p>
    <h5>{{name}}</h5>
    <p>Calories: {{calories}}</p>
-   <p>Sugars: {{sugars}} grams</p>
+   <p>Sugars: {{sugars}}</p>
+   <p>Carbs: {{carbs}}</p>
+   <p>Proteins: {{proteins}}</p>
+</div>
 
 {{/each}}
-
+</div>
 
 <div id="buttons">
 <p><a href="private"><button>Dashboard</button></a></p>

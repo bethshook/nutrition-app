@@ -281,4 +281,13 @@ router.get('/dietitians', (req,res,next)=>{
   })
 })
 
+//connect user with dietitian
+
+router.get('/dietitian/:id', (req,res,next)=>{
+  User.findByIdAndUpdate({_id:req.user._id}, {dietitian: req.params.id})
+  .then(user => {
+    res.render('private', { user: req.user })
+  })
+})
+
 module.exports = router;

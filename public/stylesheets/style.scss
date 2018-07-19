@@ -227,31 +227,30 @@ nav {
   margin-bottom: 40px;
 }
 
+
 #foodname, #calories, #carbs, #proteins, #sugars {
   width: 380px;
   background: #f8f8f8;
   border: none;
 }
 
+#meal-history {
+  max-width: 85%;
+  display: flex;
+  flex-flow: row wrap;
+}
 
+.food {
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #45B8AC;
+  border-radius: 5px;
+}
 
-// #welcome-box, #meals-box, #messages, #patients-box {
-//   width: 270px;
-//   margin: 20px 10px;
-//   border: 3px solid #45B8AC;
-//   padding: 20px 30px;
-//   border-radius: 8px;
-
-//   a {
-//     text-decoration: none;
-//   }
-
-//   a:hover {text-decoration:none}
-
-//   h4 {
-//     text-align: center;
-//   }
-// }
+.dietitian {
+  font-weight: 700;
+  color: #45B8AC;
+}
 
 footer {
   background-color: #5B5EA6;

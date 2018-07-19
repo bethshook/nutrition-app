@@ -146,6 +146,21 @@ nav {
   background: #f8f8f8;
   border: none; }
 
+#meal-history {
+  max-width: 85%;
+  display: flex;
+  flex-flow: row wrap; }
+
+.food {
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #45B8AC;
+  border-radius: 5px; }
+
+.dietitian {
+  font-weight: 700;
+  color: #45B8AC; }
+
 footer {
   background-color: #5B5EA6;
   height: 60px; }

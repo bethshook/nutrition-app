@@ -12,7 +12,9 @@
     <input type="password" class="form-control" name="password">
   </div>
   {{#if message}}
+  <div class="alert alert-danger" role="alert">
     <div class="error-message">{{ message }}</div>
+    </div>
   {{/if}}
   <p>
     <button class="small-button">Submit</button>
