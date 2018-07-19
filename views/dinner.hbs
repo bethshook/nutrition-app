@@ -1,10 +1,14 @@
 <nav><a href="/"><h2>NutritionHack</h2></a></nav>
 <div id="container">
     <section id="food-search">
-<p>Search for a food item:</p>
+        <h2>My Dinner</h2>
+        <div id="mymeal"></div>
+<p>Search for a food item to add to your meal:</p>
 
-<input type="text" name="query" id="search">
+<input type="text" class="form-control" name="query" id="search">
+<p>
 <button id="button" class="small">search</button>
+</p>
 <div id="results">
 
 </div>
@@ -13,34 +17,39 @@
 
 </section>
 </div>
+
 <script>
 
 //food search
 const input = document.getElementById('search');
 const searchResults = document.getElementById('results');
 const button = document.getElementById('button');
+const myMeal = document.getElementById('mymeal');
 
 button.addEventListener('click', () =>{
-    fetch(`https://api.edamam.com/api/food-database/parser?ingr=${input.value}&app_id=ac3de265&app_key=60cd20dfc55a216360c3f54521f9bef4`)
+    fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${input.value}&sort=r&max=500&offset=0&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
 .then(result => result.json())
 .then(foods => {
     searchResults.innerHTML = '';
     var ul = document.createElement('ul');
     searchResults.appendChild(ul);
-    //if (movie.status_code === 34) return searchRes.innerHTML =('');
-    var hints = foods.hints;
-    hints.forEach(function(foodObj){
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        var add = document.createTextNode('add');
-        var text = document.createTextNode(foodObj.food.label.toLowerCase() + ' - ');
-        var text2 = document.createTextNode(foodObj.food.brand + ' ');
-        a.appendChild(add);
-        a.href = "";
-        li.appendChild(text);
-        li.appendChild(text2);
-        li.appendChild(a);
-        ul.appendChild(li);
+    var foodArray = foods.list.item;
+    foodArray.forEach(function(food){
+        if ((food.group !== "Fast Foods") && (food.group !== "Branded Food Products Database")) {
+            var id = food.ndbno;
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            var add = document.createTextNode('add');
+            var text = document.createTextNode(food.name.toLowerCase() + ' - ');
+            //var text2 = document.createTextNode(foodObj.food.brand + ' ');
+            a.appendChild(add);
+            a.setAttribute('href', 'dinner/' + id)
+            li.appendChild(text);
+            //li.appendChild(text2);
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
+        
     })
 })
 })

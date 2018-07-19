@@ -1,13 +1,14 @@
 <nav><a href="/"><h2>NutritionHack</h2></a></nav>
 <div id="container">
   {{#if user}}
-  <h1>Welcome, {{user.username}}!</h1>
+  <h1>Welcome, {{user.firstname}}!</h1>
   <p class="center">Nutrition Dashboard</p>
 <div class="common-container">
 
-<section id ="welcome-box">
-<h4>Profile</h4>
-<p><b>Username:</b> {{user.username}}</p>
+<div class="card">
+<div class="card-header">
+    <h4>My Profile</h4>
+  </div><p><b>Username:</b> {{user.username}}</p>
 <p><b>Full name:</b> {{user.firstname}} {{user.lastname}}</p>
 <p><b>Email:</b> {{user.email}}</p>
 <p><b>Gender:</b> {{user.gender}}</p>
@@ -16,30 +17,37 @@
 <p><b>Age:</b> {{user.age}}</p>
 <p><b>Physical Activity Level:</b> {{user.activity}}</p>
 <p><a href="edit">Edit profile information</a></p>
-</section>
-<div>
-<section id="meals-box">
+</div>
+
+<div class="card">
+     <div class="card-header">
     <h4>My Meals</h4>
-    <p>Track your daily caloric intake.</p>
-    <p><a href="/meal-record"><button class="small-button">Review meals</button></a></p>
-  <p><a href="/meals"><button class="small-button">Add a meal</button></a></p>
-  </section>
+  </div>
+    <p class="card-text">Track your daily caloric intake.</p>
+    <p><a href="/meal-record"><button class="btn btn-primary">Review meals</button></a></p>
+  <p><a href="/meals"><button class="btn btn-primary">Add a meal</button></a></p>
+  </div>
 
-<section id="messages">
+<div class="card">
+     <div class="card-header">
   <h4>Diet Log</h4>
-  <p>Review your most recent messages.</p>
-  <p><a href="/messages"><button class="small-button">View log</button></a></p>
-</section>
+  </div>
+  <p class="card-text">Review your most recent messages.</p>
+  <p><a href="/messages"><button class="btn btn-primary">View log</button></a></p>
 </div>
 
-<section id="patients-box">
-<h4>Your Dietitian</h4>
-<p><b>Dietitian Name:</b> {{user.dietitian.name}}</p>
-<p>Don't have a dietitian? <a href="/dietitians">Find one here.</a></p>
-</section>
+
+<div class="card">
+     <div class="card-header">
+  <h4>Your Dietitian</h4>
+  </div>
+<p class="card-text"><b>Dietitian Name:</b> {{user.dietitian.name}}</p>
+<p class="card-text">Don't have a dietitian? <a href="/dietitians">Find one here.</a></p>
+</div>
+
 {{/if}}
-
 </div>
+
 
 <a href="auth/logout"></a><button class="teal">Logout</button></a>
 

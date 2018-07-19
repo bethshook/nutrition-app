@@ -98,6 +98,46 @@ router.post('/message', (req,res,next)=>{
 
 //fetch indiv API food views and add foods to db
 
+router.get('/breakfast/:id', (req,res,next)=>{
+  let id = req.params.id
+  fetch(`https://api.nal.usda.gov/ndb/V2/reports?ndbno=${id}&type=b&format=json&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
+  .then(results => results.json())
+  .then(food => {
+    
+    res.render('food-detail', food)
+  })
+})
+
+router.post('/breakfast/add', (req,res,next)=>{
+
+    let newfood = {
+      name: req.body.foodname,
+      user: req.user,
+      calories: req.body.calories,
+      proteins: req.body.proteins,
+      carbs: req.body.carbs,
+      sugars: req.body.sugars,
+      meal: 'Breakfast'
+    }
+
+    Food.create(newfood)
+    .then(food => {
+      res.redirect('/breakfast');
+    })
+
+    let currentId = req.user._id;
+    console.log(currentId)
+
+    User.findByIdAndUpdate({_id:req.user._id}, { $push: { foods: newfood } })
+    .then(result=>{
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  })
+
+
 router.get('/lunch/:id', (req,res,next)=>{
   let id = req.params.id
   fetch(`https://api.nal.usda.gov/ndb/V2/reports?ndbno=${id}&type=b&format=json&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
@@ -136,6 +176,86 @@ router.post('/lunch/add', (req,res,next)=>{
       console.log(error)
     })
   })
+
+  router.get('/dinner/:id', (req,res,next)=>{
+    let id = req.params.id
+    fetch(`https://api.nal.usda.gov/ndb/V2/reports?ndbno=${id}&type=b&format=json&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
+    .then(results => results.json())
+    .then(food => {
+      
+      res.render('food-detail', food)
+    })
+  })
+  
+  router.post('/dinner/add', (req,res,next)=>{
+  
+      let newfood = {
+        name: req.body.foodname,
+        user: req.user,
+        calories: req.body.calories,
+        proteins: req.body.proteins,
+        carbs: req.body.carbs,
+        sugars: req.body.sugars,
+        meal: 'Dinner'
+      }
+  
+      Food.create(newfood)
+      .then(food => {
+        res.redirect('/dinner');
+      })
+  
+      let currentId = req.user._id;
+      console.log(currentId)
+  
+      User.findByIdAndUpdate({_id:req.user._id}, { $push: { foods: newfood } })
+      .then(result=>{
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    })
+  
+  
+    router.get('/snack/:id', (req,res,next)=>{
+      let id = req.params.id
+      fetch(`https://api.nal.usda.gov/ndb/V2/reports?ndbno=${id}&type=b&format=json&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
+      .then(results => results.json())
+      .then(food => {
+        
+        res.render('food-detail', food)
+      })
+    })
+    
+    router.post('/snack/add', (req,res,next)=>{
+    
+        let newfood = {
+          name: req.body.foodname,
+          user: req.user,
+          calories: req.body.calories,
+          proteins: req.body.proteins,
+          carbs: req.body.carbs,
+          sugars: req.body.sugars,
+          meal: 'Snack'
+        }
+    
+        Food.create(newfood)
+        .then(food => {
+          res.redirect('/snack');
+        })
+    
+        let currentId = req.user._id;
+        console.log(currentId)
+    
+        User.findByIdAndUpdate({_id:req.user._id}, { $push: { foods: newfood } })
+        .then(result=>{
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      })
+    
 
 //show meals for a given user
 
