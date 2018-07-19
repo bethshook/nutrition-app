@@ -27,9 +27,9 @@ h3 {
   font-size: 2em;
 }
 
-// h4, h5 {
-//   font-style: italic;
-// }
+h4, h5 {
+  margin-bottom: 30px;
+}
 
 a {
   color: #00B7FF;
@@ -71,6 +71,10 @@ button, input.submit {
 }
 .teal {
   background-color: #45B8AC;
+}
+
+.logout {
+  margin-top: 40px;
 }
 
 
@@ -261,6 +265,7 @@ footer {
 
 .btn-primary:hover, .btn-primary:active {
   background-color: #45B8AC;
+  margin:0 auto;
 }
 
 .card a:hover{

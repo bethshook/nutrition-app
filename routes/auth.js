@@ -85,7 +85,11 @@ router.post('/login', passport.authenticate('local', {
     passReqToCallback: true
 }),
   function(req, res) {
-    res.redirect('/private')
+    if(req.user.role==='PATIENT'){
+      res.redirect('/private')
+    }else{
+      res.redirect('/admin')
+    }
   })
 
 router.get('/logout', function(req, res, next){

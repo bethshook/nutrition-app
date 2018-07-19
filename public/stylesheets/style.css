@@ -19,6 +19,9 @@ h3 {
   margin-bottom: 40px;
   font-size: 2em; }
 
+h4, h5 {
+  margin-bottom: 30px; }
+
 a {
   color: #00B7FF; }
 
@@ -54,6 +57,9 @@ button, input.submit {
 
 .teal {
   background-color: #45B8AC; }
+
+.logout {
+  margin-top: 40px; }
 
 #container {
   padding: 40px 0;
@@ -177,7 +183,8 @@ footer {
   margin-bottom: 40px; }
 
 .btn-primary:hover, .btn-primary:active {
-  background-color: #45B8AC; }
+  background-color: #45B8AC;
+  margin: 0 auto; }
 
 .card a:hover {
   text-decoration: none; }
