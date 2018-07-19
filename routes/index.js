@@ -23,10 +23,6 @@ router.get('/foods', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
   }) 
 })
 
-router.get('/meal-record', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
-  res.render('meal-record')
-})
-
 router.get('/meals', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
   res.render('meals')
 })
@@ -268,12 +264,12 @@ router.post('/lunch/add', (req,res,next)=>{
 
 //show meals for a given user
 
-router.get('meal-record', (req,res,next)=>{
-  Food.find({user: req.user})
-  .then(foods =>{
-    console.log(foods);
+router.get('/meal-record', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
+  Food.find({user:req.user})
+  .then(foods=>{
+    console.log(foods)
     res.render('meal-record', foods)
-  })
+  }) 
 })
 
 //dietitians

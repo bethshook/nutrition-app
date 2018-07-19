@@ -125,6 +125,26 @@ router.post('/edit', (req,res,next)=>{
   })
 })
 
+//dietitian dashboard
+
+router.get("/admin", ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render("admin", { user: req.user });
+});
+
+router.get('/edit-dietitian', ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render("edit-dietitian", { user: req.user });
+})
+
+router.post('/edit-dietitian', (req,res,next)=>{
+  User.findByIdAndUpdate(req.user._id, { $set: req.body} )
+  .then((user)=> {
+    res.redirect('/admin')
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+})
+
 
 module.exports = router;
 //findbyuserandupdate

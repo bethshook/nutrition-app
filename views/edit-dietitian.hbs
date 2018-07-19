@@ -1,0 +1,40 @@
+<nav><h2>NutritionHack</h2></nav>
+<div id="container">
+<h1>Update Profile</h1>
+
+<form action="/edit-dietitian" method="POST" class="form-container">
+  <label for="firstname">First name:</label>
+  <input id="firstname" type="text" name="firstname" value="{{user.firstname}}">
+  <br><br>
+  <label for="lastname">Last name:</label>
+  <input id="lastname" type="text" name="lastname" value="{{user.lastname}}">
+  <br><br>
+  <label for="username">Username:</label>
+  <input id="username" type="text" name="username" value="{{user.username}}">
+  <br><br>
+  <label for="email">Email:</label>
+  <input id="email" type="email" name="email" value="{{user.email}}">
+  <br><br>
+  <label for="gender">Gender:</label><br>
+  <input type="radio" name="gender" value="female" checked> Female<br>
+  <input type="radio" name="gender" value="male"> Male<br>
+  <input type="radio" name="gender" value="other"> Other
+  <br><br>
+  <label for="specialty">Specialties:</label>
+  <input id="specialty" type="text" name="specialty" value="{{user.specialty}}">
+  <br><br>
+  
+ 
+
+  {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  <br><br>
+
+  <button>Update</button>
+
+  </form>
+
+  <div id="buttons">
+<p><a href="private"><button>Dashboard</button></a></p>
+</div>

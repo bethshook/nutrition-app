@@ -1,8 +1,8 @@
 <nav><h2>NutritionHack</h2></nav>
 <div id="container">
-<h1>Sign up</h1>
+<h3>Sign up</h3>
 
-<form action="/signup" method="POST" id="form-container">
+<form action="/signup" method="POST" class="form-container">
 <div class="form-group">
   <label for="firstname">First name:</label>
   <input id="firstname" class="form-control" type="text" name="firstname">
@@ -43,7 +43,7 @@
     <div class="form-check">
   <input type="radio" name="role" class="form-check-input" value="DIETITIAN" id="dietitian"> <label class="form-check-label" for="dietitian">Dietitian</label>
 </div>
-
+<br><br>
     <div class="form-group">
   <label for="password">Password:</label>
   <input id="password" class="form-control" type="password" name="password">
@@ -58,11 +58,11 @@
   {{/if}}
   <br><br>
 
-  <button class="small">Create account</button>
+  <button>Create account</button>
 
   <p class="account-message">
     Do you already have an account?
-    <a href="/login">Login</a>
+    <a href="/login">Log in.</a>
   </p>
 </form>
 

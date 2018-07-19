@@ -1,9 +1,8 @@
 <nav><a href="/"><h2>NutritionHack</h2></a></nav>
 <div id="container">
   {{#if user}}
-  <h1>Welcome, {{user.firstname}}!</h1>
-  <h4 class="center">Nutrition Dashboard</h4>
-<div class="common-container">
+  <h4 class="center">{{user.firstname}}'s Nutrition Dashboard</h4>
+<div class="card-container">
 
 <div class="card">
 <div class="card-header">
@@ -16,7 +15,26 @@
 <p class="card-text"><b>Weight:</b> {{user.weight}}</p>
 <p class="card-text"><b>Age:</b> {{user.age}}</p>
 <p class="card-text"><b>Physical Activity Level:</b> {{user.activity}}</p>
-<p class="card-text"><a href="edit">Edit profile information</a></p>
+<p class="card-text center"><a href="edit">Edit profile information</a></p>
+</div>
+
+<div class="card">
+     <div class="card-header">
+    <h4>My Meals</h4>
+  </div>
+    <p class="card-text">Track your daily caloric intake.</p>
+    <p><a href="/meal-record"><button>Review meals</button></a></p>
+  <p><a href="/meals"><button>Add a meal</button></a></p>
+  </div>
+
+
+
+<div class="card">
+     <div class="card-header">
+  <h4>Diet Log</h4>
+  </div>
+  <p class="card-text">Review your most recent messages.</p>
+  <p><a href="/messages"><button>View log</button></a></p>
 </div>
 
 <div class="card">
@@ -27,28 +45,13 @@
 <p class="card-text">Don't have a dietitian? <a href="/dietitians">Find one here.</a></p>
 </div>
 
-<div class="card">
-     <div class="card-header">
-    <h4>My Meals</h4>
-  </div>
-    <p class="card-text">Track your daily caloric intake.</p>
-    <p><a href="/meal-record"><button class="btn btn-primary">Review meals</button></a></p>
-  <p><a href="/meals"><button class="btn btn-primary">Add a meal</button></a></p>
-  </div>
-
-<div class="card">
-     <div class="card-header">
-  <h4>Diet Log</h4>
-  </div>
-  <p class="card-text">Review your most recent messages.</p>
-  <p><a href="/messages"><button class="btn btn-primary">View log</button></a></p>
-</div>
-
 
 {{/if}}
 </div>
 
-
-<a href="auth/logout"></a><button class="logout btn btn-primary">Logout</button></a>
+<div id="buttons">
+<a href="/logout"><button class="logout">Logout</button></a>
+</div>
 
 </div>
+<footer></footer>

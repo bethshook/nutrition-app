@@ -14,6 +14,7 @@ const passport     = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const flash        = require("connect-flash");
 const User         = require('./models/User');
+const MongoStore   = require('connect-mongo')(session);
 // const flash        = require("connect-flash");
 
 
@@ -31,10 +32,16 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+//session
 app.use(session({
   secret: 's3cr3t',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({
+    mongooseConnection:mongoose.connection,
+    ttl: 30 * 24 * 60 * 60 //30 días
+  }),
+  //maxAge: Date.now() + (30 * 86400 * 1000)
 }));
 
 

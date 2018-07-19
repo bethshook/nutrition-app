@@ -27,20 +27,27 @@ h3 {
   font-size: 2em;
 }
 
-h4, h5 {
+h4{
   margin-bottom: 30px;
+  font-size: 1.8em;
 }
 
-a {
-  color: #00B7FF;
+h5 {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  font-weight: 700;
 }
 
-.food-label {
-  color: #45B8AC;
-}
+// a {
+//   color: #00B7FF;
+// }
+
+// .food-label {
+//   color: #45B8AC;
+// }
 
 #buttons {
-  margin-top: 50px;
+  margin: 30px 0;
 }
 
 #buttons a:hover{
@@ -49,28 +56,41 @@ a {
 
 button, input.submit {
   background-color: #6B5B95;
-  padding: 15px 25px;
-  color: white;
-  font-size: 1.1em;
-  border-radius: 20px;
   border: none;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  margin: 5px auto;
+  border-color: #45B8AC;
   display: block;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  padding: .375rem .75rem;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 400;
+  // transition: color .15s ease-in-out,#6B5B95 .15s ease-in-out,#45B8AC .15s ease-in-out,box-shadow .15s ease-in-out;
+
+  a:hover {
+    text-decoration: none;
+  }
 }
 
-.small-button {
-  padding: 8px 15px;
-  font-size: .9em;
-  border-radius: 12px;
-  margin: 15px auto;
-  display: block;
+button:hover{
+  background-color: #45B8AC;
 }
+
+// .small-button {
+//   padding: 8px 15px;
+//   font-size: .9em;
+//   border-radius: 12px;
+//   margin: 15px auto;
+//   display: block;
+// }
+
 .teal {
   background-color: #45B8AC;
+
 }
 
 .logout {
@@ -94,20 +114,20 @@ button, input.submit {
   }
 }
 
-.center-column {
-  width: 250px;
-  margin: 0 auto;
+// .center-column {
+//   width: 250px;
+//   margin: 0 auto;
     
-      div {
-      display:flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-}
+//       div {
+//       display:flex;
+//       flex-direction: column;
+//       justify-content: space-between;
+//     }
+// }
 
-.left-column, .right-column{
-  padding: 15px 0;
-}
+// .left-column, .right-column{
+//   padding: 15px 0;
+// }
 
 nav {
   background-color: #45B8AC;
@@ -127,7 +147,7 @@ nav {
 }
 
 
-#form-container {
+.form-container {
   width: 40%;
   margin: 0 auto 20px auto;
 }
@@ -182,7 +202,7 @@ nav {
 #meals {
   width: 80%;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   margin: 50px auto;
   font-weight: bold;
@@ -213,14 +233,7 @@ nav {
   border: none;
 }
 
-.common-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  max-width: 85%;
-  margin: 0 auto;
-}
+
 
 // #welcome-box, #meals-box, #messages, #patients-box {
 //   width: 270px;
@@ -245,14 +258,32 @@ footer {
   height: 60px;
 }
 
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.message-card {
+  background-color: #fcf9e1;
+}
+
 //Bootstrap
 
 .card-header {
-  background-color: #ccede9;
+  background-color: #e5f6f4;
+  text-align: center;
+
+  h4{
+    margin-bottom: 0;
+  }
 }
 
 .card-text {
-  padding: 10px 20px;
+  margin: 20px;
 }
 
 .btn-primary {
@@ -268,6 +299,18 @@ footer {
   margin:0 auto;
 }
 
+.card {
+  padding-bottom: 20px;
+  display: block;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  min-width: 300px;
+}
+
 .card a:hover{
   text-decoration: none;
+}
+
+.card button {
+  margin-bottom: 0;
 }
