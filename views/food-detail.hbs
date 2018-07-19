@@ -1,0 +1,32 @@
+<nav><a href="/"><h2>NutritionHack</h2></a></nav>
+<div id="container">
+    <section id="food-search">
+        <h3>Add Food</h3>
+        <div id="mymeal"></div>
+        {{!-- <img src ="/images/plate.png"> --}}
+
+<form action="/lunch/add" method="POST" id="form-container">
+
+<label for="foodname"><b>Name of food:</b></label>
+<input id="foodname" type="text" name="foodname" value="{{foods.0.food.desc.name}}" readonly>
+<br><br>
+<label for="calories"><b>Calories:</b></label>
+<input id="calories" type="text" name="calories" value="{{foods.0.food.nutrients.1.value}} grams" readonly>
+<br><br>
+<label for="carbs"><b>Carbohydrates:</b></label>
+<input id="carbs" type="text" name="carbs" value="{{foods.0.food.nutrients.4.value}} grams" readonly>
+<br><br>
+<label for="sugars"><b>Sugars:</b></label>
+<input id="sugars" type="text" name="sugars" value="{{foods.0.food.nutrients.6.value}} grams" readonly>
+<br><br>
+<label for="proteins"><b>Protein:</b></label>
+<input id="proteins" type="text" name="proteins" value="{{foods.0.food.nutrients.2.value}} grams" readonly>
+<br><br>
+
+<button class="small-button teal">Add Food</button>
+</form>
+
+<p><a href="/lunch"><button class="small-button">Return to search</button></a></p>
+
+</section>
+</div>

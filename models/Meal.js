@@ -6,13 +6,10 @@ const mealSchema = new Schema ({
         type: String,
         enum: ['Breakfast', 'Lunch', 'Dinner', 'Snack']
     },
-    foods: {
-        name: String,
-        calories: Number
-    },
+    foods: [String],
     calories: Number,
-    carbs: Number,
-    protein: Number,
+    // carbs: Number,
+    // protein: Number,
     user:{
         type:Schema.Types.ObjectId,
         ref: 'User'
@@ -26,3 +23,8 @@ const mealSchema = new Schema ({
 
 //create model with Mongoose library
 module.exports = require('mongoose'). model('Meal', mealSchema);
+
+//foods could be array of IDs associated with this meal
+//bring to other view when you click on food
+
+//submit from id page 

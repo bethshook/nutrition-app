@@ -2,12 +2,17 @@ const Schema = require('mongoose').Schema;
 
 const foodSchema = new Schema ({
     name: String,
-    calories: Number,
-    // carbs: Number,
-    // protein: Number,
-    meal:{
+    calories: String,
+    carbs: String,
+    proteins: String,
+    sugars: String,
+    user: {
         type:Schema.Types.ObjectId,
-        ref: 'Meal'
+        ref: 'User'
+    },
+    meal:{
+        type: String,
+        enum: ['Breakfast', 'Lunch', 'Dinner', 'Snack']
         },
     },
     {

@@ -2,8 +2,7 @@
 <div id="container">
     <section id="food-search">
         <h2>My Lunch</h2>
-        <div class="mymeal"></div>
-        <hr />
+        <div id="mymeal"></div>
 <p>Search for a food item to add to your meal:</p>
 
 <input type="text" name="query" id="search">
@@ -25,6 +24,7 @@
 const input = document.getElementById('search');
 const searchResults = document.getElementById('results');
 const button = document.getElementById('button');
+const myMeal = document.getElementById('mymeal');
 
 button.addEventListener('click', () =>{
     fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${input.value}&sort=r&max=500&offset=0&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
@@ -53,4 +53,6 @@ button.addEventListener('click', () =>{
     })
 })
 })
+
+
 </script>

@@ -11,6 +11,8 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+//meals
+
 router.get('/foods', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
   fetch('https://api.edamam.com/api/food-database/parser?ingr=burger&app_id=ac3de265&app_key=60cd20dfc55a216360c3f54521f9bef4')
   .then(results => results.json())
@@ -19,6 +21,10 @@ router.get('/foods', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
     res.render('foods', foods);
     //we're passing an object and then using array in view
   }) 
+})
+
+router.get('/meal-record', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
+  res.render('meal-record')
 })
 
 router.get('/meals', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
@@ -90,40 +96,44 @@ router.post('/message', (req,res,next)=>{
 
 })
 
-//adding API foods to db
+//fetch indiv API food views and add foods to db
 
-//  NEED TO ADD POST ROUTE HERE TO ADD TO DB
 router.get('/lunch/:id', (req,res,next)=>{
-  fetch('https://api.nal.usda.gov/ndb/V2/reports?ndbno=' + req.params.id + '&type=b&format=json&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp')
+  let id = req.params.id
+  fetch(`https://api.nal.usda.gov/ndb/V2/reports?ndbno=${id}&type=b&format=json&api_key=OTwkyRvnOJpgdJE1q0DDJbJmkb3CouAZAH8ev4yp`)
   .then(results => results.json())
-  
-  .then(food =>{
-    const name = food.name;
-    const user = req.user;
-    const meal = 'Lunch';
+  .then(food => {
     
-    const newFood = new Food({
-      name,
-      meal,
-      user
-    });
-
-    newFood.save((err)=> {
-      if (err) {
-        res.render('lunch', { message: "Something went wrong" });
-      } else {
-        res.redirect('lunch');
-      }
-    })
+    res.render('food-detail', food)
   })
 })
 
-// router.get('/:id', (req,res,next)=>{
-//   fetch('https://api.edamam.com/api/food-database/parser?ingr=&app_id=ac3de265&app_key=60cd20dfc55a216360c3f54521f9bef4')
-// })
-//   .then(foods => {
-//     const
-//   })
-  
+router.post('/lunch/add', (req,res,next)=>{
+
+    let newfood = {
+      name: req.body.foodname,
+      user: req.user,
+      calories: req.body.calories,
+      proteins: req.body.proteins,
+      carbs: req.body.carbs,
+      sugars: req.body.sugars,
+      meal: 'Lunch'
+    }
+
+    Food.create(newfood)
+    .then(food => {
+      res.redirect('/lunch');
+    })
+  })
+
+//show meals for a given user
+
+router.get('meal-record', (req,res,next)=>{
+  Food.find({user: req.user})
+  .then(foods =>{
+    console.log(foods);
+    res.render('meal-record', foods)
+  })
+})
 
 module.exports = router;

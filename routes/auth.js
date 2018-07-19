@@ -61,6 +61,7 @@ router.post("/signup", (req, res, next) => {
   
       newUser.save((err) => {
         if (err) {
+          console.log(err)
           res.render("auth/signup", { message: "Something went wrong" });
         } else {
           res.redirect("/");
@@ -109,9 +110,8 @@ router.get('/edit', ensureLogin.ensureLoggedIn(), (req,res) => {
     res.render('edit', req.user );
 })
 
-router.post('/edit', (req,res)=>{
-  const {firstname,lastname,username,email,gender,height,weight,age,activity} = req.body;
-  User.update({user: req.user}, { $set: {firstname,lastname,username,email,gender,height,weight,age,activity}} )
+router.post('/edit', (req,res,next)=>{
+  User.findByIdAndUpdate(req.user._id, { $set: req.body} )
   .then((user)=> {
     res.redirect('/private')
   })
@@ -122,3 +122,5 @@ router.post('/edit', (req,res)=>{
 
 
 module.exports = router;
+//findbyuserandupdate
+//mongbodb $set

@@ -36,6 +36,9 @@ button, input.submit {
   margin: 5px auto;
   display: block; }
 
+#buttons a:hover {
+  text-decoration: none; }
+
 .small-button {
   padding: 8px 15px;
   font-size: .9em;
@@ -64,6 +67,10 @@ button, input.submit {
 #food-search {
   width: 500px;
   margin: 0 auto; }
+  #food-search img {
+    margin: 20px auto;
+    display: block;
+    width: 150px; }
 
 #write-message {
   margin-top: 20px; }
@@ -133,13 +140,19 @@ footer {
 #results ul li {
   margin: 10px 0; }
 
-.mymeal {
+#mymeal {
   margin-bottom: 40px; }
+
+#foodname, #calories, #carbs, #proteins, #sugars {
+  width: 380px;
+  background: #f8f8f8;
+  border: none; }
 
 .common-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   max-width: 80%; }
 

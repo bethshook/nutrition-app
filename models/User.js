@@ -12,22 +12,27 @@ const userSchema = new Schema ({
     height: String,
     weight: String,
     age: String,
+    dietitian: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+        }],
+    patients: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+        }],
     activity: {
         type: String,
-        enum: ['Low', 'Average', 'High']
+        enum: ['low', 'average', 'high', ''],
+        default: 'average'
     },
     role: {
         type: String,
-        enum: ['Patient', 'Dietitian'],
-        default: 'Patient'
+        enum: ['PATIENT', 'DIETITIAN'],
+        default: 'PATIENT'
     },
-    profile: {
-        type:Schema.Types.ObjectId,
-        ref: 'Profile'
-    },
-    meals: [{
+    foods: [{
         type: Schema.Types.ObjectId,
-        ref: 'Meal'
+        ref: 'Food'
     }],
     // habits: [{
     //     type: Schema.Types.ObjectId,
@@ -46,5 +51,3 @@ userSchema.plugin(passportLocalMongoose, {usernameField:'email'})
 
 //create model with Mongoose library
 module.exports = require('mongoose'). model('User', userSchema);
-
-//why have separate user and perfil models
