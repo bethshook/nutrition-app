@@ -16,6 +16,9 @@ const userSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: 'User'
         }],
+        //messages: [{
+        //    type: Schema.Types.ObjectId,
+        //    ref: 'Message'}],
     patients: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -30,14 +33,11 @@ const userSchema = new Schema ({
         enum: ['PATIENT', 'DIETITIAN'],
         default: 'PATIENT'
     },
+    specialty: String,
     foods: [{
         type: Schema.Types.ObjectId,
         ref: 'Food'
-    }],
-    // habits: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Habit'
-    // }]
+    }]
 },
     {
         timestamps:{

@@ -3,8 +3,8 @@ const router  = express.Router();
 const fetch = require('node-fetch');
 const ensureLogin = require("connect-ensure-login");
 const Message = require('../models/Message');
-const Meal = require('../models/Meal');
 const Food = require('../models/Food');
+const User = require('../models/User')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -124,6 +124,17 @@ router.post('/lunch/add', (req,res,next)=>{
     .then(food => {
       res.redirect('/lunch');
     })
+
+    let currentId = req.user._id;
+    console.log(currentId)
+
+    User.findByIdAndUpdate({_id:req.user._id}, { $push: { foods: newfood } })
+    .then(result=>{
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   })
 
 //show meals for a given user
@@ -133,6 +144,15 @@ router.get('meal-record', (req,res,next)=>{
   .then(foods =>{
     console.log(foods);
     res.render('meal-record', foods)
+  })
+})
+
+//dietitians
+
+router.get('/dietitians', (req,res,next)=>{
+  User.find({role: 'DIETITIAN'})
+  .then(dietitians =>{
+    res.render('dietitians', dietitians)
   })
 })
 

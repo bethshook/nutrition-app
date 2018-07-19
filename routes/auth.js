@@ -28,6 +28,7 @@ router.post("/signup", (req, res, next) => {
     const weight = '';
     const age = '';
     const activity = '';
+    const specialty = '';
 
   
     if (username === "" || password === "") {

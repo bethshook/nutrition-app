@@ -1,12 +1,12 @@
 <nav><a href="/"><h2>NutritionHack</h2></a></nav>
 <div id="container">
   {{#if user}}
-  <h3>{{user.firstname}}'s Nutrition Dashboard</h3>
+  <h1>Welcome, {{user.username}}!</h1>
+  <p class="center">Nutrition Dashboard</p>
 <div class="common-container">
 
 <section id ="welcome-box">
-
-<h2>Welcome, {{user.username}}!</h2>
+<h4>Profile</h4>
 <p><b>Username:</b> {{user.username}}</p>
 <p><b>Full name:</b> {{user.firstname}} {{user.lastname}}</p>
 <p><b>Email:</b> {{user.email}}</p>

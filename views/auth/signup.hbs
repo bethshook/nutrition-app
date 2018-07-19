@@ -3,32 +3,55 @@
 <h1>Sign up</h1>
 
 <form action="/signup" method="POST" id="form-container">
+<div class="form-group">
   <label for="firstname">First name:</label>
-  <input id="firstname" type="text" name="firstname">
-  <br><br>
+  <input id="firstname" class="form-control" type="text" name="firstname">
+  </div>
+  <div class="form-group">
   <label for="lastname">Last name:</label>
-  <input id="lastname" type="text" name="lastname">
-  <br><br>
+  <input id="lastname" class="form-control" type="text" name="lastname">
+  </div>
+    <div class="form-group">
   <label for="username">Username:</label>
-  <input id="username" type="text" name="username">
-  <br><br>
+  <input id="username" class="form-control" type="text" name="username">
+  </div>
+    <div class="form-group">
   <label for="email">Email:</label>
-  <input id="email" type="email" name="email">
-  <br><br>
-  <label for="gender">Gender:</label><br>
-  <input type="radio" name="gender" value="female" checked> Female<br>
-  <input type="radio" name="gender" value="male"> Male<br>
-  <input type="radio" name="gender" value="other"> Other
-  <br><br>
-  <label for="role">Role:</label><br>
-  <input type="radio" name="role" value="PATIENT" checked> Patient<br>
-  <input type="radio" name="role" value="DIETITIAN"> Dietitian<br>
-  <br><br>
+  <input id="email" class="form-control" type="email" name="email">
+  </div>
+    <p>Gender:</p>
+    
+    <div class="form-check">
+<input type="radio" name="gender" class="form-check-input" id="female" value="female" checked>
+<label class="form-check-label" for="female">Female</label>
+</div>
+<div class="form-check">
+<input type="radio" name="gender" class="form-check-input" id="male" value="male">
+<label class="form-check-label" for="male">Male</label>
+  </div>
+  <div class="form-check">
+<input type="radio" name="gender" class="form-check-input" id="other" value="other" checked>
+<label class="form-check-label" for="other">Other</label>
+    </div>
+
+      <p>Role:</p>
+
+    <div class="form-check">
+  <input type="radio" name="role" class="form-check-input" value="PATIENT" id="patient" checked>
+<label class="form-check-label" for="patient">Patient</label>
+</div>
+    <div class="form-check">
+  <input type="radio" name="role" class="form-check-input" value="DIETITIAN" id="dietitian"> <label class="form-check-label" for="dietitian">Dietitian</label>
+</div>
+
+    <div class="form-group">
   <label for="password">Password:</label>
-  <input id="password" type="password" name="password"
-  <br><br>
+  <input id="password" class="form-control" type="password" name="password">
+  </div>
+    <div class="form-group">
   <label for="password2">Password:</label>
-  <input id="password2" type="password" name="password2">
+  <input id="password2" class="form-control" type="password" name="password2">
+  </div>
 
   {{#if message}}
     <div class="error-message">{{ message }}</div>

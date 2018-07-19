@@ -2,8 +2,11 @@
 body {
   padding: 0;
   margin: 0;
-  font: 14px "Lato", Calibri, Arial, sans-serif;
+  font: 16px "Lato", Calibri, Arial, sans-serif;
   background-color: #f8f8f8; }
+
+p {
+  margin: 1rem 0; }
 
 h1, h2 {
   text-align: center;
@@ -13,14 +16,14 @@ h1, h2 {
 h3 {
   text-align: center; }
 
-h4, h5 {
-  font-style: italic; }
-
 a {
   color: #00B7FF; }
 
 #buttons {
   margin-top: 50px; }
+
+#buttons a:hover {
+  text-decoration: none; }
 
 button, input.submit {
   background-color: #6B5B95;
@@ -36,9 +39,6 @@ button, input.submit {
   margin: 5px auto;
   display: block; }
 
-#buttons a:hover {
-  text-decoration: none; }
-
 .small-button {
   padding: 8px 15px;
   font-size: .9em;
@@ -53,6 +53,12 @@ button, input.submit {
   padding: 40px 0;
   position: relative; }
 
+.center {
+  text-align: center; }
+  .center img {
+    display: block;
+    margin: 30px auto; }
+
 .center-column {
   width: 250px;
   margin: 0 auto; }
@@ -63,17 +69,6 @@ button, input.submit {
 
 .left-column, .right-column {
   padding: 15px 0; }
-
-#food-search {
-  width: 500px;
-  margin: 0 auto; }
-  #food-search img {
-    margin: 20px auto;
-    display: block;
-    width: 150px; }
-
-#write-message {
-  margin-top: 20px; }
 
 nav {
   background-color: #45B8AC;
@@ -87,37 +82,20 @@ nav {
     text-decoration: none;
     color: #f8f8f8; }
 
-#results {
-  margin: 20px 0; }
-  #results ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0; }
+#form-container {
+  width: 40%;
+  margin: 0 auto; }
 
-.center {
-  text-align: center; }
-  .center img {
+#food-search {
+  width: 500px;
+  margin: 0 auto; }
+  #food-search img {
+    margin: 20px auto;
     display: block;
-    margin: 30px auto; }
+    width: 150px; }
 
-#meals {
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 50px auto;
-  font-weight: bold;
-  font-size: 1.2em; }
-  #meals a {
-    text-decoration: none;
-    color: inherit; }
-  #meals img {
-    width: 160px;
-    margin: 0 10px 15px 10px; }
-
-footer {
-  background-color: #5B5EA6;
-  height: 60px; }
+#write-message {
+  margin-top: 20px; }
 
 #message-text {
   width: 400px;
@@ -136,6 +114,28 @@ footer {
 
 .card {
   margin-bottom: 20px; }
+
+#results {
+  margin: 20px 0; }
+  #results ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+
+#meals {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px auto;
+  font-weight: bold;
+  font-size: 1.2em; }
+  #meals a {
+    text-decoration: none;
+    color: inherit; }
+  #meals img {
+    width: 160px;
+    margin: 0 10px 15px 10px; }
 
 #results ul li {
   margin: 10px 0; }
@@ -157,10 +157,10 @@ footer {
   max-width: 80%; }
 
 #welcome-box, #meals-box, #messages, #patients-box {
-  width: 260px;
+  width: 270px;
   margin: 20px 10px;
   border: 3px solid #45B8AC;
-  padding: 20px;
+  padding: 20px 30px;
   border-radius: 8px; }
   #welcome-box a, #meals-box a, #messages a, #patients-box a {
     text-decoration: none; }
@@ -168,5 +168,9 @@ footer {
     text-decoration: none; }
   #welcome-box h4, #meals-box h4, #messages h4, #patients-box h4 {
     text-align: center; }
+
+footer {
+  background-color: #5B5EA6;
+  height: 60px; }
 
 /*# sourceMappingURL=style.css.map */
