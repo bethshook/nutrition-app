@@ -285,9 +285,12 @@ router.get('/dietitians', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
 
 router.get('/dietitian/:id', (req,res,next)=>{
   //need to get dietitian name (and email?) to link with user
-  var docName = User.findById({_id: req.params.id});
-  console.log(docName)
+  // var docName = User.findById({_id: req.params.id});
+  // console.log(docName)
   User.findByIdAndUpdate({_id:req.user._id}, {dietitian: req.params.id})
+  // .then(user=>{
+  //   User.findByIdAndUpdate({})
+  // })
   .then(user => {
     res.render('private', { user: req.user })
   })
