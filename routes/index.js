@@ -104,7 +104,7 @@ router.get('/breakfast/:id', (req,res,next)=>{
   .then(results => results.json())
   .then(food => {
     
-    res.render('food-detail', food)
+    res.render('food-detail-breakfast', food)
   })
 })
 
@@ -144,7 +144,7 @@ router.get('/lunch/:id', (req,res,next)=>{
   .then(results => results.json())
   .then(food => {
     
-    res.render('food-detail', food)
+    res.render('food-detail-lunch', food)
   })
 })
 
@@ -183,7 +183,7 @@ router.post('/lunch/add', (req,res,next)=>{
     .then(results => results.json())
     .then(food => {
       
-      res.render('food-detail', food)
+      res.render('food-detail-lunch', food)
     })
   })
   
@@ -223,7 +223,7 @@ router.post('/lunch/add', (req,res,next)=>{
       .then(results => results.json())
       .then(food => {
         
-        res.render('food-detail', food)
+        res.render('food-detail-lunch', food)
       })
     })
     
