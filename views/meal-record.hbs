@@ -8,13 +8,16 @@
 <div class="card-container">
 <div id="meal-history">
    {{#each foods}}
+
    <div class="food">
-<p>{{created_at}}</p>
+       <span class="meal-p">{{meal}}</span>
+<p class="date">{{created_at}}</p>
    <h5>{{name}}</h5>
-   <p>Calories: {{calories}}</p>
-   <p>Sugars: {{sugars}}</p>
-   <p>Carbs: {{carbs}}</p>
-   <p>Proteins: {{proteins}}</p>
+   <hr />
+   <p><span class="teal-text">Calories:</span> {{calories}}</p>
+   <p><span class="teal-text">Sugars:</span> {{sugars}}</p>
+   <p><span class="teal-text">Carbs:</span> {{carbs}}</p>
+   <p><span class="teal-text">Proteins:</span> {{proteins}}</p>
 </div>
 
 {{/each}}

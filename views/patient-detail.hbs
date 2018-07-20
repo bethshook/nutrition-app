@@ -5,11 +5,41 @@
 <p><a href="/admin"><button>Dashboard</button></a></p>
 </div>
 <div class="card-container">
-<div id="food-list">
+
+<div class="card">
+<div class="card-header">
+    <h4>Profile</h4>
+  </div><p class="card-text"><b>Username:</b> {{user.username}}</p>
+<p class="card-text"><b>Full name:</b> {{user.firstname}} {{user.lastname}}</p>
+<p class="card-text"><b>Email:</b> {{user.email}}</p>
+<p class="card-text"><b>Gender:</b> {{user.gender}}</p>
+<p class="card-text"><b>Height:</b> {{user.height}}</p>
+<p class="card-text"><b>Weight:</b> {{user.weight}}</p>
+<p class="card-text"><b>Age:</b> {{user.age}}</p>
+<p class="card-text"><b>Physical Activity Level:</b> {{user.activity}}</p>
+<p class="card-text center"><a href="edit">Edit profile information</a></p>
+</div>
+</div>
+
+    <h4 class="center">Meal History</h4>
+<div id="meal-history">
+
   {{#each foods as |food|}}
-  <p>{{food.name}}</p>
+  <div class="food">
+    <span class="meal-p">{{food.meal}}</span>
+<p class="date">{{food.created_at}}</p>
+   <h5>{{food.name}}</h5>
+   <hr />
+   <p><span class="teal-text">Calories:</span> {{food.calories}}</p>
+   <p><span class="teal-text">Sugars:</span> {{food.sugars}}</p>
+   <p><span class="teal-text">Carbs:</span> {{food.carbs}}</p>
+   <p><span class="teal-text">Proteins:</span> {{food.proteins}}</p>
+  </div>
   {{/each}}
 </div>
+
+<h4 class="center">Patient Diet Log</h4>
+
 <div id="print-message">
       {{#each messages as |message|}}
  <div class="card message-card" style="width: 18rem;">
@@ -22,5 +52,5 @@
  {{/each}}
 
 </div>
-</div>
+
 </div>

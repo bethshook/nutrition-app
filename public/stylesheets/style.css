@@ -28,6 +28,21 @@ h5 {
   font-size: 1.1em;
   font-weight: 700; }
 
+.meal-p {
+  text-align: right;
+  margin: 0 0 20px 0;
+  font-size: .9em;
+  background-color: #DC4C46;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 3px; }
+
+.teal-text {
+  color: #45B8AC; }
+
+.date {
+  font-size: .8em; }
+
 #buttons {
   margin: 30px 0; }
 
@@ -155,17 +170,20 @@ nav {
   border: none; }
 
 #meal-history {
-  max-width: 90%;
+  width: 90%;
+  margin: 0 auto;
   font-size: .9em;
   display: flex;
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  justify-content: space-between; }
 
 .food {
   padding: 20px;
+  background-color: white;
   margin: 15px;
-  border: 1px solid #45B8AC;
-  border-radius: 5px;
-  max-width: 200px; }
+  border: 1px solid #ccc;
+  max-width: 240px;
+  border-top: 5px solid #45B8AC; }
 
 .dietitian {
   font-weight: 700;
@@ -180,7 +198,7 @@ footer {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  max-width: 85%;
+  max-width: 90%;
   margin: 0 auto; }
 
 .message-card {
