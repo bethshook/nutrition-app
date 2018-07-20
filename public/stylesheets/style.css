@@ -19,6 +19,9 @@ h3 {
   margin-bottom: 40px;
   font-size: 2em; }
 
+h3.no-margin {
+  margin-bottom: 10px; }
+
 h4 {
   margin-bottom: 30px;
   font-size: 1.8em; }
@@ -101,7 +104,7 @@ nav {
     color: #f8f8f8; }
 
 .form-container {
-  width: 40%;
+  width: 50%;
   margin: 0 auto 20px auto; }
 
 .form-check {
@@ -111,7 +114,7 @@ nav {
   margin-top: 0; }
 
 #food-search {
-  width: 500px;
+  width: 90%;
   margin: 0 auto; }
   #food-search img {
     margin: 20px auto;
@@ -119,10 +122,10 @@ nav {
     width: 150px; }
 
 #write-message {
-  margin-top: 20px; }
+  margin: 20px 15px 0 15px;
+  width: 45%; }
 
 #message-text {
-  width: 400px;
   height: 150px;
   border-radius: 4px;
   border: 2px solid #ccc;
@@ -131,10 +134,8 @@ nav {
 
 #print-message {
   display: flex;
-  flex-direction: column-reverse; }
-
-#subject {
-  width: 400px; }
+  flex-direction: column-reverse;
+  margin-left: 15px; }
 
 #results {
   margin: 20px 0; }
@@ -147,8 +148,8 @@ nav {
   width: 80%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 50px auto;
+  justify-content: space-around;
+  margin: 40px auto;
   font-weight: bold;
   font-size: 1.2em; }
   #meals a {
@@ -201,6 +202,22 @@ footer {
   max-width: 90%;
   margin: 0 auto; }
 
+.card-container2 {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  align-items: stretch; }
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 90%; }
+
+.message-form {
+  width: 90%;
+  margin: 0 40px; }
+
 .message-card {
   background-color: #fcf9e1; }
 
@@ -216,9 +233,9 @@ footer {
 .card {
   padding-bottom: 20px;
   display: block;
-  margin-right: 30px;
-  margin-bottom: 30px;
-  width: 300px; }
+  margin: 0 15px 30px 15px;
+  width: 300px;
+  box-sizing: border-box; }
 
 .card a:hover {
   text-decoration: none; }

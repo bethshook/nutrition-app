@@ -4,11 +4,11 @@
   <div id="buttons">
 <p><a href="private"><button>Dashboard</button></a></p>
 </div>
-<div class="card-container">
-<div id="write-message">
+<div class="flex-container">
+<div class="message-form">
 
   <p>Write a log for your dietitian.</p>
-  <form validated action="/message" method="post">
+  <form validated action="/message" method="post" class="form-container2">
   <div class="form-group">
     <label for="date">Date:</label>
   <input type="date" class="form-control" name="date" id="date">
@@ -26,7 +26,8 @@
   <p><button>Post</button></p>
   </form>
 </div>
-<div id="print-message">
+
+<div class="card-container2">
       {{#each messages as |message|}}
  <div class="card message-card" style="width: 18rem;">
   <div class="card-body">
@@ -35,6 +36,7 @@
     <p class="message-text">{{message.body}}</p>
   </div>
 </div>
+
  {{/each}}
 
 </div>

@@ -2,11 +2,12 @@
 <div id="container">
     <section class="center">
 <h4>Dietitians</h4>
-
+<div class="card-container">
 <div id="dietitians">
    {{#each dietitians}}
    <p><span class="dietitian">Dr. {{firstname}} {{lastname}}</span> specializes in: {{specialty}} (<a href="dietitian/{{id}}">connect</a>)</p>
    {{/each}}
+</div>
 </div>
 
 <div id="buttons">
