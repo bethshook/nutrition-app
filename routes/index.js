@@ -91,6 +91,14 @@ router.post('/message', (req,res,next)=>{
 
 })
 
+router.get('/delete/:id', (req,res,next)=>{
+  Message.findByIdAndRemove(req.params.id)
+  .then(message=>{
+    res.redirect('/messages')
+  })
+  .catch(err=>next())
+})
+
 //fetch indiv API food views and add foods to db
 
 router.get('/breakfast/:id', (req,res,next)=>{
