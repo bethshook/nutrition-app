@@ -1,0 +1,29 @@
+<nav><a href="/"><h2>NutritionHack</h2></a></nav>
+<div id="container">
+    <section id="food-search">
+        <h3>Connect with Dietitian</h3>
+        <div id="mymeal"></div>
+
+<form action="/dietitian/add" method="POST" id="form-container">
+
+<label for="id" class="food-label"><b>ID</b></label>
+<input id="id" type="text" name="id" value="{{dietitian.0._id}}" readonly>
+<br><br>
+<label for="dietitian-name" class="food-label"><b>Name</b></label>
+<input id="dietitian-name" type="text" name="dietitian-name" value="{{dietitian.0.firstname}}" readonly>
+<br><br>
+<label for="specialty" class="food-label"><b>Specialty</b></label>
+<input id="specialty" type="text" name="specialty" value="{{dietitian.0.specialty}}" readonly>
+<br><br>
+<label for="location" class="food-label"><b>Location</b></label>
+<input id="location" type="text" name="location" value="{{dietitian.0.location}}" readonly>
+<br><br>
+
+<button>Connect</button>
+</form>
+<div id="buttons">
+<p><a href="/private"><button>Dashboard</button></a></p>
+</div>
+
+</section>
+</div>

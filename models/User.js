@@ -35,6 +35,7 @@ const userSchema = new Schema ({
         default: 'PATIENT'
     },
     specialty: String,
+    location: String,
     foods: [{
         type: Schema.Types.ObjectId,
         ref: 'Food'

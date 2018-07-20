@@ -6,7 +6,7 @@
 
 <div class="card">
 <div class="card-header">
-    <h4>My Profile</h4>
+    <h4>Profile</h4>
   </div><p class="card-text"><b>Username:</b> {{user.username}}</p>
 <p class="card-text"><b>Full name:</b> {{user.firstname}} {{user.lastname}}</p>
 <p class="card-text"><b>Email:</b> {{user.email}}</p>
@@ -22,7 +22,7 @@
      <div class="card-header">
     <h4>My Meals</h4>
   </div>
-    <p class="card-text">Track your daily caloric intake.</p>
+    <p class="card-text">Track your meals and their nutritional value.</p>
     <p><a href="/meal-record"><button>Review meals</button></a></p>
   <p><a href="/meals"><button>Add a meal</button></a></p>
   </div>
@@ -33,7 +33,7 @@
      <div class="card-header">
   <h4>Diet Log</h4>
   </div>
-  <p class="card-text">Review your most recent messages.</p>
+  <p class="card-text">Write messages and review your diet log.</p>
   <p><a href="/messages"><button>View log</button></a></p>
 </div>
 
@@ -41,7 +41,7 @@
      <div class="card-header">
   <h4>My Dietitian</h4>
   </div>
-<p class="card-text"><b>Dietitian Name:</b> {{user.dietitian.firstname}}</p>
+<p class="card-text"><b>Dietitian Name:</b> {{user.dietitian.firstname}} {{user.dietitian.lastname}}</p>
 <p class="card-text">Don't have a dietitian? <a href="/dietitians">Find one here.</a></p>
 </div>
 

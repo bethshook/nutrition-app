@@ -19,7 +19,6 @@ router.get('/foods', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
   //foods =  results.json
   .then(foods=> {
     res.render('foods', foods);
-    //we're passing an object and then using array in view
   }) 
 })
 
@@ -185,8 +184,6 @@ router.post('/lunch/add', (req,res,next)=>{
   
   router.post('/dinner/add', (req,res,next)=>{
   
-    console.log('bodyyyy', req.body)
-
       let newfood = {
         name: req.body.foodname,
         user: req.user._id,
@@ -211,7 +208,6 @@ router.post('/lunch/add', (req,res,next)=>{
         console.log(e)
       })
   
-
       // // User.findByIdAndUpdate({_id:req.user._id}, { $push: { foods: newfood } })
       // .then(result=>{
       //   console.log(result);
@@ -302,12 +298,43 @@ router.get('/dietitian/:id', (req,res,next)=>{
   
 })
 
-//dietition view of patient detail 
+// router.get('/dietitian/:id', (req,res,next)=>{
+//   User.find({_id:req.params.id})
+//   .then(dietitian=>{
+//     // console.log(dietitian)
+//     res.render('dietitian-detail', {dietitian})
+//   })
+//   .catch(e=>{e})
+// })
+
+// router.post('/dietitian/add', (req,res,next)=>{
+//   let docId = req.body.id; //dietitian's ID
+//   let patientId = req.user._id;
+//   User.findById(patientId)
+//   .then(patient=>{
+//   User.findByIdAndUpdate({_id:docId}, {$push:{patients:patientId}}, { 'new': true})
+//   User.findById(docId)
+//   .then(dietitian=>{
+//     User.findByIdAndUpdate({_id:patientId}, {dietitian: dietitian})
+//     .then(user=>{
+//       res.render('private', {user: req.user})
+//     })
+//   })
+//   })
+// })
+
+
+//dietition view of patient  
 
 router.get('/patient/:id', (req,res,next)=>{
-  User.findById(req.user._id)
-  .then(user=>{
-    res.render('patient-detail', user)
+  Promise.all([User.findById(req.params.id), Food.find({user:req.params.id}), Message.find({user:req.params.id})])
+  .then(results=>{
+    const ctx = {
+      user: results[0],
+      foods: results[1],
+      messages: results[2]
+    }
+    res.render('patient-detail', ctx)
   })
 })
 

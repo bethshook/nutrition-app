@@ -1,17 +1,18 @@
 <nav><a href="/"><h2>NutritionHack</h2></a></nav>
 
 <div id="container">
-  {{#if user}}
-  <h4 class="center">Dr. {{user.firstname}} {{user.lastname}}'s Dietitian Dashboard</h4>
+  {{!-- {{#if user}} --}}
+  <h4 class="center">Dr. {{dietitian.firstname}} {{dietitian.lastname}}'s Dietitian Dashboard</h4>
 <div class="card-container">
 
 <div class="card">
 <div class="card-header">
     <h4>My Profile</h4>
-  </div><p class="card-text"><b>Username:</b> {{user.username}}</p>
-<p class="card-text"><b>Full name:</b> {{user.firstname}} {{user.lastname}}</p>
-<p class="card-text"><b>Email:</b> {{user.email}}</p>
-<p class="card-text"><b>Specialties:</b> {{user.specialty}}</p>
+  </div><p class="card-text"><b>Username:</b> {{dietitian.username}}</p>
+<p class="card-text"><b>Full name:</b> {{dietitian.firstname}} {{dietitian.lastname}}</p>
+<p class="card-text"><b>Email:</b> {{dietitian.email}}</p>
+<p class="card-text"><b>Specialties:</b> {{dietitian.specialty}}</p>
+<p class="card-text"><b>Location:</b> {{dietitian.location}}</p>
 <p class="card-text"><a href="edit-dietitian">Edit profile information</a></p>
 </div>
 
@@ -19,12 +20,14 @@
      <div class="card-header">
   <h4>My Patients</h4>
   </div>
-  <p class="card-text">You don't have any patients yet.</p>
+
+  <p class="card-text"><a href="patient/{{patient._id}}">{{patient.firstname}} {{patient.lastname}}</a></p>
+
 <p class="card-text">{{user.patient.name}}</p>
 
 </div>
 
-{{/if}}
+{{!-- {{/if}} --}}
 </div>
 
 

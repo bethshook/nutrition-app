@@ -133,6 +133,14 @@ nav {
   margin: 0 auto 20px auto;
 }
 
+.form-check {
+  margin: 3px 0;
+}
+
+.form-check-input{
+  margin-top: 0;
+}
+
 #food-search {
   width: 500px;
   margin: 0 auto;
@@ -200,6 +208,7 @@ nav {
   }
 }
 
+
 #results ul li {
   margin: 10px 0;
 }
@@ -216,7 +225,7 @@ nav {
 }
 
 #meal-history {
-  max-width: 85%;
+  max-width: 90%;
   font-size: .9em;
   display: flex;
   flex-flow: row wrap;
@@ -224,7 +233,7 @@ nav {
 
 .food {
   padding: 20px;
-  margin: 20px;
+  margin: 15px;
   border: 1px solid #45B8AC;
   border-radius: 5px;
   max-width: 200px;
@@ -236,7 +245,7 @@ nav {
 }
 
 footer {
-  background-color: #5B5EA6;
+  background-color: #6B5B95;
   height: 60px;
 }
 
@@ -286,7 +295,7 @@ footer {
   display: block;
   margin-right: 30px;
   margin-bottom: 30px;
-  min-width: 300px;
+  width: 300px;
 }
 
 .card a:hover{

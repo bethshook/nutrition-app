@@ -7,26 +7,28 @@
 
 <form action="/lunch/add" method="POST" id="form-container">
 
-<label for="foodname" class="food-label"><b>Name of food</b></label>
+<label for="foodname" class="food-label"><b>Name of food:</b></label>
 <input id="foodname" type="text" name="foodname" value="{{foods.0.food.desc.name}}" readonly>
 <br><br>
-<label for="calories" class="food-label"><b>Calories</b></label>
+<label for="calories" class="food-label"><b>Calories:</b></label>
 <input id="calories" type="text" name="calories" value="{{foods.0.food.nutrients.1.value}}" readonly>
 <br><br>
-<label for="carbs" class="food-label"><b>Carbohydrates</b></label>
+<label for="carbs" class="food-label"><b>Carbohydrates:</b></label>
 <input id="carbs" type="text" name="carbs" value="{{foods.0.food.nutrients.4.value}} grams" readonly>
 <br><br>
-<label for="sugars" class="food-label"><b>Sugars</b></label>
+<label for="sugars" class="food-label"><b>Sugars:</b></label>
 <input id="sugars" type="text" name="sugars" value="{{foods.0.food.nutrients.6.value}} grams" readonly>
 <br><br>
-<label for="proteins" class="food-label"><b>Protein</b></label>
+<label for="proteins" class="food-label"><b>Protein:</b></label>
 <input id="proteins" type="text" name="proteins" value="{{foods.0.food.nutrients.2.value}} grams" readonly>
 <br><br>
 
+<div id="buttons">
 <button>Add Food</button>
 </form>
 
 <p><a href="/lunch"><button>Return to search</button></a></p>
+</div>
 
 </section>
 </div>

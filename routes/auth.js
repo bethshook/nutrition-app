@@ -29,6 +29,7 @@ router.post("/signup", (req, res, next) => {
     const age = '';
     const activity = '';
     const specialty = '';
+    const location = '';
 
   
     if (username === "" || password === "") {
@@ -86,6 +87,7 @@ router.post('/login', passport.authenticate('local', {
 }),
   function(req, res) {
     if(req.user.role==='PATIENT'){
+
       res.redirect('/private')
     }else{
       res.redirect('/admin')
@@ -106,10 +108,22 @@ router.get('/facebook/callback',
     res.redirect('/private');
   });
 
-//dashboard aka profile
+// dashboard aka profile
 router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
     res.render("private", { user: req.user });
   });
+
+// router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
+//   Promise.all([User.findById(req.user._id), User.find({patients:req.user._id})])
+//   .then(results=>{
+//     const ctx = {
+//       user: results[0],
+//       dietitian: results[1][0]
+//     }
+//     console.log(ctx)
+//     res.render("private", ctx);
+//   })
+// });
 
 router.get('/edit', ensureLogin.ensureLoggedIn(), (req,res) => {
     res.render('edit', req.user );
@@ -128,7 +142,15 @@ router.post('/edit', (req,res,next)=>{
 //dietitian dashboard
 
 router.get("/admin", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("admin", { user: req.user });
+  Promise.all([User.findById(req.user._id), User.find({dietitian:req.user._id})])
+  .then(results=>{
+    const ctx = {
+      dietitian: results[0],
+      patient: results[1][0]
+    }
+    console.log(ctx)
+    res.render("admin", ctx);
+  })
 });
 
 router.get('/edit-dietitian', ensureLogin.ensureLoggedIn(), (req, res) => {
