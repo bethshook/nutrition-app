@@ -113,17 +113,6 @@ router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
     res.render("private", { user: req.user });
   });
 
-// router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
-//   Promise.all([User.findById(req.user._id), User.find({patients:req.user._id})])
-//   .then(results=>{
-//     const ctx = {
-//       user: results[0],
-//       dietitian: results[1][0]
-//     }
-//     console.log(ctx)
-//     res.render("private", ctx);
-//   })
-// });
 
 router.get('/edit', ensureLogin.ensureLoggedIn(), (req,res) => {
     res.render('edit', req.user );
@@ -148,7 +137,6 @@ router.get("/admin", ensureLogin.ensureLoggedIn(), (req, res) => {
       dietitian: results[0],
       patient: results[1][0]
     }
-    console.log(ctx)
     res.render("admin", ctx);
   })
 });

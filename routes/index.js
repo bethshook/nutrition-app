@@ -254,7 +254,6 @@ router.post('/lunch/add', (req,res,next)=>{
         })
     
         let currentId = req.user._id;
-        console.log(currentId)
     
         User.findByIdAndUpdate({_id:req.user._id}, { $push: { foods: newfood } })
         .then(result=>{
@@ -305,31 +304,6 @@ router.get('/dietitian/:id', (req,res,next)=>{
   })
   
 })
-
-// router.get('/dietitian/:id', (req,res,next)=>{
-//   User.find({_id:req.params.id})
-//   .then(dietitian=>{
-//     // console.log(dietitian)
-//     res.render('dietitian-detail', {dietitian})
-//   })
-//   .catch(e=>{e})
-// })
-
-// router.post('/dietitian/add', (req,res,next)=>{
-//   let docId = req.body.id; //dietitian's ID
-//   let patientId = req.user._id;
-//   User.findById(patientId)
-//   .then(patient=>{
-//   User.findByIdAndUpdate({_id:docId}, {$push:{patients:patientId}}, { 'new': true})
-//   User.findById(docId)
-//   .then(dietitian=>{
-//     User.findByIdAndUpdate({_id:patientId}, {dietitian: dietitian})
-//     .then(user=>{
-//       res.render('private', {user: req.user})
-//     })
-//   })
-//   })
-// })
 
 
 //dietition view of patient  
