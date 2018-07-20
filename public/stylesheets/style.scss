@@ -80,17 +80,14 @@ button:hover{
   background-color: #45B8AC;
 }
 
-// .small-button {
-//   padding: 8px 15px;
-//   font-size: .9em;
-//   border-radius: 12px;
-//   margin: 15px auto;
-//   display: block;
-// }
 
 .teal {
   background-color: #45B8AC;
 
+}
+
+.fb {
+  background-color: #3b5998;
 }
 
 .logout {
@@ -102,7 +99,6 @@ button:hover{
 
 #container {
   padding: 40px 0;
-  position: relative;
 }
 
 .center {
@@ -113,21 +109,6 @@ button:hover{
     margin: 30px auto;
   }
 }
-
-// .center-column {
-//   width: 250px;
-//   margin: 0 auto;
-    
-//       div {
-//       display:flex;
-//       flex-direction: column;
-//       justify-content: space-between;
-//     }
-// }
-
-// .left-column, .right-column{
-//   padding: 15px 0;
-// }
 
 nav {
   background-color: #45B8AC;
@@ -236,6 +217,7 @@ nav {
 
 #meal-history {
   max-width: 85%;
+  font-size: .9em;
   display: flex;
   flex-flow: row wrap;
 }
@@ -245,6 +227,7 @@ nav {
   margin: 20px;
   border: 1px solid #45B8AC;
   border-radius: 5px;
+  max-width: 200px;
 }
 
 .dietitian {
@@ -285,18 +268,18 @@ footer {
   margin: 20px;
 }
 
-.btn-primary {
-  background-color: #6B5B95;
-  border: none;
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 40px;
-}
+// .btn-primary {
+//   background-color: #6B5B95;
+//   border: none;
+//   margin: 0 auto;
+//   display: block;
+//   margin-bottom: 40px;
+// }
 
-.btn-primary:hover, .btn-primary:active {
-  background-color: #45B8AC;
-  margin:0 auto;
-}
+// .btn-primary:hover, .btn-primary:active {
+//   background-color: #45B8AC;
+//   margin:0 auto;
+// }
 
 .card {
   padding-bottom: 20px;

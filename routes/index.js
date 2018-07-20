@@ -268,7 +268,7 @@ router.get('/meal-record', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
   Food.find({user:req.user})
   .then(foods=>{
     console.log(foods)
-    res.render('meal-record', foods)
+    res.render('meal-record', {foods:foods})
   }) 
 })
 
@@ -277,7 +277,7 @@ router.get('/meal-record', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
 router.get('/dietitians', ensureLogin.ensureLoggedIn(), (req,res,next)=>{
   User.find({role: 'DIETITIAN'})
   .then(dietitians =>{
-    res.render('dietitians', dietitians)
+    res.render('dietitians', {dietitians: dietitians})
   })
 })
 
@@ -288,11 +288,26 @@ router.get('/dietitian/:id', (req,res,next)=>{
   // var docName = User.findById({_id: req.params.id});
   // console.log(docName)
   User.findByIdAndUpdate({_id:req.user._id}, {dietitian: req.params.id})
-  // .then(user=>{
-  //   User.findByIdAndUpdate({})
-  // })
-  .then(user => {
-    res.render('private', { user: req.user })
+  //.populate('dietitian')
+  .then(user=>{
+    User.findByIdAndUpdate(req.params.id,{$push:{patients: user._id}})    
+    .then(user => {
+        req.user.dietitian=user
+      //add this user's ID to the doc's patients array
+        console.log(req.user)
+        console.log(user, 'nutri')
+        res.render('private', { user: req.user })
+      })
+  })
+  
+})
+
+//dietition view of patient detail 
+
+router.get('/patient/:id', (req,res,next)=>{
+  User.findById(req.user._id)
+  .then(user=>{
+    res.render('patient-detail', user)
   })
 })
 

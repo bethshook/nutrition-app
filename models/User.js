@@ -12,16 +12,17 @@ const userSchema = new Schema ({
     height: String,
     weight: String,
     age: String,
-    dietitian: [{
+    dietitian: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-        }],
+        },
         //messages: [{
         //    type: Schema.Types.ObjectId,
         //    ref: 'Message'}],
     patients: [{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        unique:true
         }],
     activity: {
         type: String,

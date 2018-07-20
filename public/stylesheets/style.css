@@ -58,12 +58,14 @@ button:hover {
 .teal {
   background-color: #45B8AC; }
 
+.fb {
+  background-color: #3b5998; }
+
 .logout {
   margin-top: 40px; }
 
 #container {
-  padding: 40px 0;
-  position: relative; }
+  padding: 40px 0; }
 
 .center {
   text-align: center; }
@@ -148,6 +150,7 @@ nav {
 
 #meal-history {
   max-width: 85%;
+  font-size: .9em;
   display: flex;
   flex-flow: row wrap; }
 
@@ -155,7 +158,8 @@ nav {
   padding: 20px;
   margin: 20px;
   border: 1px solid #45B8AC;
-  border-radius: 5px; }
+  border-radius: 5px;
+  max-width: 200px; }
 
 .dietitian {
   font-weight: 700;
@@ -184,17 +188,6 @@ footer {
 
 .card-text {
   margin: 20px; }
-
-.btn-primary {
-  background-color: #6B5B95;
-  border: none;
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 40px; }
-
-.btn-primary:hover, .btn-primary:active {
-  background-color: #45B8AC;
-  margin: 0 auto; }
 
 .card {
   padding-bottom: 20px;
